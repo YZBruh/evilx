@@ -23,6 +23,9 @@ ARCH := $(shell uname -m)
 ifeq ($(ARCH), aarch64)
     CC := gcc
     LD := gcc
+else ifeq ($(ARCH), armv8l)
+    CC := gcc
+    LD := gcc
 else ifeq ($(ARCH), armv7l)
     CC := gcc
     LD := gcc
