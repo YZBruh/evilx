@@ -14,7 +14,7 @@ evilx makes android devices hard bricks. It is quite dangerous (as I said, I am 
 NOTE: You need to change the architecture of the vehicle chain according to your architecture. In other words, you cannot use evilx, which you compiled with the aarch64 compiler, on a 32-bit android device.
 
 ### Compiling in Linux
- 1. Get compatible toolchain and setup environment (Please read [note!](anan))
+ 1. Get compatible toolchain and setup environment (Please read note! On top)
  2. Install packages
 ```
 Ubuntu/Debian based:
