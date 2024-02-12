@@ -39,7 +39,7 @@ make CC := <compiler> LD := <compiler>
 pkg update && pkg upgrade -y && pkg install clang lld coreutils
 ```
  3. Start compilation [NOTE]
-NOTE: Whatever the architecture of the android device you are using, a structure suitable for that architecture will be built.
+- NOTE: Whatever the architecture of the android device you are using, a structure suitable for that architecture will be built.
 
 ```
 make
