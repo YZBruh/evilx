@@ -1,4 +1,4 @@
-# evilx Android Device Bricker (!!!)
+# evilx Android Device Bricker (Not tested!)
 
 ## REJECTION
 I do not accept responsibility or responsibilities. The user or user is responsible for any serious damage that may occur!
