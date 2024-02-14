@@ -30,5 +30,5 @@ else ifeq ($(ARCH), armv7l)
     CC := gcc
     LD := gcc
 else
-    $(info NOTE: The device is not aarch64 or armv7l! A special vehicle chain is required. When compiling, you must use the CC := <compiler> and LD := <compiler> Octet)
+    $(info NOTE: The device is not 64-bit or 32-bit! A special vehicle chain is required. When compiling, you must use the CC := <compiler> and LD := <compiler> Octet)
 endif
