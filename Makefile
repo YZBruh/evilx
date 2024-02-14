@@ -19,8 +19,8 @@ include src/system.mk
 # I do not accept responsibility or responsibilities. The user or user is responsible for any serious damage that may occur!
 
 # speficy
-VERSION = 1.0.0
-LEVEL = 100
+VERSION = 1.1.0
+LEVEL = 110
 SOURCE_DIR := src
 TARGET := evilx
 
