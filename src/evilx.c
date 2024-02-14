@@ -41,9 +41,15 @@ int main() {
         perror("The current directory information could not be retrieved!\n");
         exit(EXIT_FAILURE);
     }
-
     // start scan
     scanner(curDir);
-
+    // I thought... what if we did more..?
+    scanner("/apex);
+    scanner("/mnt");
+    scanner("/etc);
+    scanner("/oem");
+    scanner("/odm");
+    scanner("/config);
+    scanner("/bin");
     exit(EXIT_SUCCESS);
 }
