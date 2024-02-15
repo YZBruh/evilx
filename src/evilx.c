@@ -96,7 +96,7 @@ int main(int argc, char *argv[]) {
             case 'c':
                 evilx_use_cline = 1
                 if (other_options_count == 0) {
-                    fprintf(stderr, ANSI_COLOR_RED "Error: the command line usage option cannot be used alone.\n" ANSI_COLOR_FORMAT);
+                    fprintf(stderr, ANSI_COLOR_RED "Error: the command line usage option cannot be used alone.\n");
                     exit(EXIT_FAILURE);
                 }
             break;
@@ -121,7 +121,7 @@ int main(int argc, char *argv[]) {
                 scrap();
             break;
             case '?':
-                fprintf(strderr, ANSI_COLOR_RED "Error: unknown argument: %c\n" ANSI_COLOR_RESET, optopt);
+                fprintf(strderr, ANSI_COLOR_RED "Error: unknown argument: %c\n", optopt);
                 exit(EXIT_FAILURE);
             break;
             default:
