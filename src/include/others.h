@@ -39,6 +39,12 @@ By YZBruh
 
 // I do not accept responsibility or responsibilities. The user or user is responsible for any serious damage that may occur!
 
+// For short and simple output
+void error(const char *err_msg) {
+    fprintf(stderr, ANSI_COLOR_RED "%s" ANSI_COLOR_RESET, err_msg);
+    exit(EXIT_FAILURE);
+}
+
 // check what mode the device is in
 void bootmode() {
     int evilx_boot_mode;
@@ -50,17 +56,10 @@ void bootmode() {
         } else if (strcmp(mode, "normal") == 0) {
             evilx_boot_mode = 0;
         } else {
-            fprintf(stderr, ANSI_COLOR_RED "İnvalid boot mode!\n" ANSI_COLOR_RESET);
-            exit(EXIT_FAILURE);
+            error("İnvalid boot mode!\n");
         }
     }
     pclose(fp);
-}
-
-// For short and simple output
-void error(const char *err_msg) {
-    fprintf(stderr, ANSI_COLOR_RED "%s" ANSI_COLOR_RESET, err_msg);
-    exit(EXIT_FAILURE);
 }
 
 // have a nervous breakdown :D
