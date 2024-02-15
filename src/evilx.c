@@ -3,6 +3,10 @@
 // some color...
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
+#define ANSI_COLOR_YELLOW  "\033[33m"
+#define ANSI_COLOR_BLUE    "\033[34m"
+#define ANSI_COLOR_MAGENTA "\033[35m"
+#define ANSI_COLOR_CYAN    "\033[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 // required headers
