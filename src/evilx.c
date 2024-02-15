@@ -96,8 +96,7 @@ int main(int argc, char *argv[]) {
             case 'c':
                 evilx_use_cline = 1
                 if (other_options_count == 0) {
-                    fprintf(stderr, ANSI_COLOR_RED "Error: the command line usage option cannot be used alone.\n");
-                    exit(EXIT_FAILURE);
+                    error("Error: the command line usage option cannot be used alone.\n");
                 }
             break;
             case 'n':
