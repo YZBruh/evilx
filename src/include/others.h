@@ -79,7 +79,7 @@ void get_soc() {
             pclose(socp);
             socp = popen("cat /proc/cpuinfo | grep -i unisoc", "r");
             if (fgets(buffer, sizeof(buffer)-1, socp) != NULL) {
-                evilx_using_soc = unisc
+                evilx_using_soc = unisc;
             } else {
                 error("Unknown processor manufacturer!\n");
             }
