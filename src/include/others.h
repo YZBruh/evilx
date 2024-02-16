@@ -64,7 +64,7 @@ void bootmode() {
 
 // get processor information
 void get_soc() {
-    char evilx_using_soc[8];
+    char *evilx_using_soc;
     FILE *socp;
     char buffer[96];
     socp = popen("cat /proc/cpuinfo | grep -i mediatek", "r");
