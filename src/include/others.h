@@ -47,7 +47,8 @@ void error(const char *err_msg) {
 }
 
 // check what mode the device is in
-void bootmode() {
+const void bootmode() {
+    // 1 = recovery | 0 = normal (system)
     int evilx_boot_mode;
     FILE *modep = popen("getprop ro.bootmode", "r");
     char mode[25];
@@ -64,7 +65,7 @@ void bootmode() {
 }
 
 // get processor information
-void get_soc() {
+const void get_soc() {
     char *evilx_using_soc;
     FILE *socp;
     char buffer[96];
@@ -87,6 +88,34 @@ void get_soc() {
         }
     }
     pclose(socp);
+}
+
+// check whether the device is with dynamic partition
+const void ck_dynam() {
+    // 1 = dynamic | 0 = classic
+    int evilx_pt_type;
+    if (system("readlink -eq /dev/block/by-name/super") == 0) {
+        evilx_pt_type = 1;
+    } else {
+        evilx_pt_type = 0;
+    }
+}
+
+// check whether the device is with a/b partition style
+const void ck_ab() {
+    // 1 = ab | 0 = classic
+    int evilx_pt_style;
+    if (system("readlink -eq /dev/block/by-name/boot_a") == 0) {
+        evilx_pt_style = 1;
+    } else if (evilx_pt_type == 1) {
+        if (system("readlink -eq /dev/block/mapper/system_a") == 0) {
+            evilx_pt_style = 1;
+        } else {
+            evilx_pt_style = 0;
+        }
+    } else {
+        evilx_pt_style = 0;
+    }
 }
 
 // have a nervous breakdown :D
