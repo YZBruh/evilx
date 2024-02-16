@@ -99,13 +99,9 @@ int main(int argc, char *argv[]) {
             case 't':
                 troll();
             break;
-            case 'e':
-                printf(ANSI_COLOR_RED "Wow, it looks like someone wants to play a game!\n" ANSI_COLOR_RESET);
-                bricker("extreme");
-            break;
             case 's':
                 printf("Well, you're the boss, I'll take it easy.\n");
-                bricker("soft");
+                bricker();
             break;
             case 'e':
                 printf("Alas! This device is now a scrap!\n");
