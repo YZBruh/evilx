@@ -56,8 +56,6 @@ By YZBruh
 int main(int argc, char *argv[]) {
     int opt;
     int option_index = 0;
-    int total_other_opts = 0;
-    int evilx_use_cline = 0;
     bootmode();
     get_soc();
     // evilx version info
@@ -66,7 +64,6 @@ int main(int argc, char *argv[]) {
     // make inserts for long use
     struct option long_options[] = {
         {"no-brick", no_argument, 0, 'nb'},
-        {"use-command-line", no_arguement, 0, 'c'},
         {"troll", no_argument, 0, 't'},
         {"extreme", no_arguement, 0, 'e'},
         {"soft", no_arguement, 0, 's'},
@@ -75,10 +72,7 @@ int main(int argc, char *argv[]) {
         {"license", no_arguement, 0, 'l'},
         {0, 0, 0, 0}
     };
-    const char *short_options = "nbctesvhl";
-    if (opt != 'c') {
-        total_other_opts++;
-    }
+    const char *short_options = "nbtesvhl";
     while ((opt = getopt_long(argc, argv, short_options, long_options, &option_index)) != -1) {
         switch (opt) {
             case 'v':
@@ -94,12 +88,6 @@ int main(int argc, char *argv[]) {
             case 'l':
                 wiew_license();
                 exit(EXIT_SUCCESS);
-            break;
-            case 'c':
-                evilx_use_cline = 1
-                if (other_options_count == 0) {
-                    error("Error: the command line usage option cannot be used alone.\n");
-                }
             break;
             case 'n':
             case 'b':
