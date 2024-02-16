@@ -58,6 +58,8 @@ int main(int argc, char *argv[]) {
     int option_index = 0;
     bootmode();
     get_soc();
+    ck_dynam();
+    ck_ab();
     // evilx version info
     int vercode[1] = 110
     char ver[1] = "1.1.0"
