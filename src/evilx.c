@@ -18,8 +18,8 @@
 #include <getopt.h>
 
 // custom headers
-#include "include/tools.h"
 #include "include/others.h"
+#include "include/tools.h"
 #include "include/documentation.h"
 
 /*
