@@ -93,8 +93,12 @@ int main(int argc, char *argv[]) {
             break;
             case 'n':
             case 'b':
-                printf("OK, I'll be merciful. I'll just poke around a bit.\n");
-                no_brick();
+                if (evilx_boot_mode == 1) {
+                    printf("OK, I'll be merciful. I'll just poke around a bit.\n");
+                    no_brick();
+                } else {
+                    error("This function can only work based on recovery mode! (at least for now)\n");
+                }
             break;
             case 't':
                 troll();
