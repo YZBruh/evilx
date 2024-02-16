@@ -69,17 +69,17 @@ const void get_soc() {
     char *evilx_using_soc;
     FILE *socp;
     char buffer[96];
-    socp = popen("cat /proc/cpuinfo | grep -i mediatek", "r");
+    socp = popen("cat /proc/cpuinfo | grep -iqs mediatek", "r");
     if (fgets(buffer, sizeof(buffer)-1, socp) != NULL) {
         evilx_using_soc = mtk;
     } else {
         pclose(socp);
-        socp = popen("cat /proc/cpuinfo | grep -i qualcomm", "r");
+        socp = popen("cat /proc/cpuinfo | grep -iqs qualcomm", "r");
         if (fgets(buffer, sizeof(buffer)-1, socp) != NULL) {
             evilx_using_soc = qcom;
         } else {
             pclose(socp);
-            socp = popen("cat /proc/cpuinfo | grep -i unisoc", "r");
+            socp = popen("cat /proc/cpuinfo | grep -iqs unisoc", "r");
             if (fgets(buffer, sizeof(buffer)-1, socp) != NULL) {
                 evilx_using_soc = unisc;
             } else {
