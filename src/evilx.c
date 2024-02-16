@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
         {"no-brick", no_argument, 0, 'nb'},
         {"troll", no_argument, 0, 't'},
         {"extreme", no_arguement, 0, 'e'},
-        {"soft", no_arguement, 0, 's'},
+        {"brick", no_arguement, 0, 's'},
         {"version", no_arguement, 0, 'v'},
         {"help", no_arguement, 0, 'h'},
         {"license", no_arguement, 0, 'l'},
