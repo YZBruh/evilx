@@ -59,6 +59,7 @@ int main(int argc, char *argv[]) {
     int total_other_opts = 0;
     int evilx_use_cline = 0;
     bootmode();
+    get_soc();
     // evilx version info
     int vercode[1] = 110
     char ver[1] = "1.1.0"
